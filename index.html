@@ -10,7 +10,7 @@
     <h1>Calcule la prime pour GIG Jordan</h1>
     
     <!-- First Equation Solver -->
-   hahaaaaaaaaaaaaaaaaaaaaaaa
+   
     <form id="variables-form-1">
         <label for="x">L`age:</label>
         <input type="text" id="x" name="x" required><br><br>
@@ -27,11 +27,11 @@
         
         <label for="classe">Classe:</label>
 <select id="classe" name="policy">
-    <option value="1">A</option>
-    <option value="2">B</option>
-    <option value="3">C</option>
-    <option value="4">X</option>
-    <option value="5">VIP</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="X">X</option>
+    <option value="VIP">VIP</option>
 </select><br><br>
         
         <label for="gender">Sexe:</label>
@@ -44,14 +44,14 @@
         <div class="displaylabel">
             <label for="new">Nouveau?:</label>
             <select id="new" name="new">
-                <option value="1">Nouveau</option>
-                <option value="2">Ancien</option>
+                <option value="New">Nouveau</option>
+                <option value="Renewal">Ancien</option>
             </select><br><br>
             
             <label for="policy">Type de police:</label>
 <select id="policyType" name="policy">
-    <option value="1">Groupe</option>
-    <option value="2">Individuel</option>
+    <option value="Groupe">Groupe</option>
+    <option value="Individuel">Individuel</option>
 </select><br><br>
 <label for="plan">Plan:</label>
 <select id="plan" name="plan">
@@ -66,15 +66,18 @@
 
         <button type="button" onclick="solveEquation()">Solve</button>
     </form>
-    
+
+<h2>Prime Pure: <span id="tweedie">0</span> JOD = <span id="tweedieUSD">0</span> $</h2>
+<h2>Prime Commerciale: <span id="tweedieCommerciale">0</span> JOD = <span id="tweedieCommercialeUSD">0</span> $</h2>
+    <!-- 
     <h3>frequence: <b id="freq"> </b></h3>
     <h3>severité: <b id="rec"></b></h3>
-    <h2>Prime nette par la methode frequency-severity est: <span id="result"></span>JOD =<span id="dollar"></span> $</h2>
+    <h2>Prime nette par la methode frequency-severity est: <span id="result"></span> JOD = <span id="dollar"> 0</span> $</h2>
 
-    <!-- Second Equation Solver -->
+    Second Equation Solver
 
     <h2>Prime brute par la methode frequency-severity est: <span id="result3"></span> JOD =<span id="dollar3"></span> $</h2>
-
+ -->
     <h4>Préparé par MAHER NASSER</h4>
     <div class="display_img">
         <img src="https://tse2.mm.bing.net/th?id=OIP.SgRXCeA4JUQdWT16W2E3EgHaHZ&pid=Api&P=0&h=220" width="120px" height="110px">
@@ -88,12 +91,11 @@
             // Get input values
             let x = parseFloat(document.getElementById('x').value);
             let relation = parseInt(document.getElementById('relation').value);
-	    console.log(relation);
-            let classe = parseInt(document.getElementById('classe').value);
-            let newRenewal = parseInt(document.getElementById('new').value);
-            let policyType = parseInt(document.getElementById('policyType').value);
+            let classe = document.getElementById('classe').value;
+            let newRenewal = document.getElementById('new').value;
+            let policyType = document.getElementById('policyType').value;
             let plan = parseInt(document.getElementById('plan').value);
-            let gendre=parseInt(document.getElementById('gender').value);
+            let gendre=document.getElementById('gender').value;
             
             if (isNaN(x)) {
             alert("Invalid input for age");
@@ -114,22 +116,22 @@
         let a12 = (x >= 60 && x <= 65) ? 1 : 0;
         let a13 = (x >= 66) ? 1 : 0;
             let r=0,r1=0,r2=0,r3=0,r4=0,r5=0;
-            if(relation=="soi-même "){
+            if(relation=="1"){//soi-même 
                 r=1;
             }
-            if(relation=="enfant "){
+            if(relation=="2"){ //enfant
                 r1=1;
             }
-            if(relation=="conjoint "){
+            if(relation=="3"){//conjoint
                 r2=1;
             }
-            if(relation=="parent "){ 
+            if(relation=="4"){ //parent
                 r3=1;
             }
-            if(relation=="autre "){
+            if(relation=="5"){ //autre
                 r4=1;
             }
-            if(relation=="principale"){
+            if(relation=="6"){//principale
                 r5=1;
             }
             let c=0,c1=0,c2=0,c3=0,c4=0;
@@ -149,31 +151,33 @@
                 c4=1;
             }
             let p=0,p1=0,p2=0,p3=0,p4=0;
-            if(plan=="other"){
+            if(plan=="1"){//other
                 p=1
             }
-            if(plan=="unlimitec"){
+            if(plan=="2"){//unlimitec
                 p1=1
             }
-            if(plan=="crown family"){
+            if(plan=="3"){//crown family
                 p2=1
             }
-            if(plan=="in only"){
+            if(plan=="4"){//in only
                 p3=1
             }
-            if(plan=="family plus"){
+            if(plan=="5"){//family plus
                 p4=1
             }
-            let sexe1=(gendre==="Male")?1:0;
+            let sexe1=(gendre==="male")?1:0;
             let sexe2=(gendre=="female")?0:0;
             let newrenewal1= (newRenewal === "New") ? 0: 0; 
             let newrenewal2= (newRenewal === "Renewal") ? 1: 0; 
             let policytypee1= (policyType === "Groupe") ? 0: 0; 
-            let policytypee2= (policyType === "individual") ? 1: 0; 
+            let policytypee2= (policyType === "Individuel") ? 1: 0; 
             
             // Calculations
-            const result =  0*a+(-0.039788)*a1+
-(0.026742)*a2+(-0.226185)*a3+
+            const result = 
+2.477903+
+ 0*a+(-0.039788)*a1+
+(0.026749)*a2+(-0.226185)*a3+
 (0.213708)*a4+(0.197562)*a5+
 (0.220027)*a6+(0.231809)*a7+
 (0.240539)*a8+(0.267084)*a9+
@@ -184,7 +188,7 @@
 
 +0*c+(-0.030756)*c1+(-0.094612)*c2+(0.189181)*c3+(0.194512)*c4+
 (0.036484)*p+(0.072833)*p1+0*p2+(2.622358)*p3+(-0.038735)*p4+
-newrenewal1+(-0.034869)*newrenewal2+(-0.009721)*sexe1+sexe2+policytypee1+(-0.044186)*policytypee2 
+(-0.034869)*newrenewal2+(-0.009721)*sexe1+(-0.044186)*policytypee2 
  ;
 
 
@@ -195,20 +199,75 @@ newrenewal1+(-0.034869)*newrenewal2+(-0.009721)*sexe1+sexe2+policytypee1+(-0.044
             const result2 = result * result1;
 
             // Display results
-            document.getElementById('freq').innerHTML = result.toFixed(2);
-          document.getElementById('rec').innerHTML = result1.toFixed(2);
-         document.getElementById('result').innerText = result2.toFixed(2);
-         document.getElementById('result2').innerHTML = result.toFixed(2);   
-         document.getElementById("dollar").innerHTML = (result2 * 1.41).toFixed(2);  
-         document.getElementById("dollar2").innerHTML = (result * 1.41).toFixed(2);   
+          //  document.getElementById('freq').innerHTML = result;
+        //  document.getElementById('rec').innerHTML = result1.toFixed(2);
+        // document.getElementById('result').innerText = result2.toFixed(2);
+        // document.getElementById('result2').innerHTML = result.toFixed(2);   
+         //document.getElementById("dollar").innerHTML = (result2 * 1.41).toFixed(2);  
+         //document.getElementById("dollar2").innerHTML = (result * 1.41).toFixed(2);   
 
-         let result4 = result/0.75;
+         //let result4 = result/0.75;
   
-    document.getElementById("result3").innerHTML = result4.toFixed(2);
-    document.getElementById("dollar3").innerHTML = (result4 * 1.41).toFixed(2);
+  //  document.getElementById("result3").innerHTML = result4.toFixed(2);
+   // document.getElementById("dollar3").innerHTML = (result4 * 1.41).toFixed(2);
 
 
-        }
+let tweedie=0;
+
+tweedie=5.344328+(-0.118987)*sexe1
+ +0*a
++
+(-0.296513)*a1+
+(-0.341466)*a2+
+(-0.104135)*a3+
+(0.100762)*a4+
+(0.284073)*a5+
+(0.336442)*a6+
+(0.351132)*a7+
+(0.404011)*a8+
+(0.502687)*a9+
+(0.610648)*a10+
+(0.724674)*a11+
+(0.821097)*a12+
+(1.052347)*a13 +
++(-0.036575)*policytypee2
+
+
++(0.014281)*r
++0*r1
++(0.263731)*r2
++(0.103558)*r3
++(-0.543926)*r4
++(0.229448)*r5
+
++0*c
++(-0.038820)*c1
++(-0.336772)*c2
++(0.157974)*c3
++(0.292435)*c4
+
++(0.118386)*p
++(0.184473)*p1
++0*p2
++(0.902311)*p3
++(-0.005621)*p4
+
++(0.062483)*newrenewal2 
+ ;
+
+console.log(tweedie);
+let value=Math.exp(tweedie);
+document.getElementById("tweedie").innerHTML = value.toFixed(2);
+        
+let tweedieUSD=0;
+ tweedieUSD=value*1.41;
+
+let tweedieCommerciale=value/0.75;
+let tweedieCommercialeUSD=tweedieUSD/0.75;
+document.getElementById("tweedieUSD").innerHTML =  tweedieUSD.toFixed(2);
+document.getElementById("tweedieCommerciale").innerHTML =  tweedieCommerciale.toFixed(2);
+document.getElementById("tweedieCommercialeUSD").innerHTML =  tweedieCommercialeUSD.toFixed(2);
+}
     </script>
 
     <style>
