@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="backround">
+    <h1>Calcule la prime pour GIG Jordan</h1>
+    
+    <!-- First Equation Solver -->
+   
+    <form id="variables-form-1">
+        <label for="x">L`age:</label>
+        <input type="text" id="x" name="x" required><br><br>
+        <label for="relation">Relation:</label>
+<select id="relation" name="Relation">
+    <option value="1">soi-même</option>
+    <option value="2">enfant</option>
+    <option value="3">conjoint</option>
+    <option value="4">parent</option>
+    <option value="5">autre</option>
+    <option value="6">principale</option>
+</select><br><br>
+       
+        
+        <label for="classe">Classe:</label>
+<select id="classe" name="policy">
+    <option value="1">A</option>
+    <option value="2">B</option>
+    <option value="3">C</option>
+    <option value="4">X</option>
+    <option value="5">VIP</option>
+</select><br><br>
+        
+        <label for="gender">Sexe:</label>
+        <select id="gender" name="gender">
+         <option value="male">Male</option>
+         <option value="female">Female</option>
+        </select><br><br>
+
+        
+        <div class="displaylabel">
+            <label for="new">Nouveau?:</label>
+            <select id="new" name="new">
+                <option value="1">Nouveau</option>
+                <option value="2">Ancien</option>
+            </select><br><br>
+            
+            <label for="policy">Type de police:</label>
+<select id="policyType" name="policy">
+    <option value="1">Groupe</option>
+    <option value="2">Individuel</option>
+</select><br><br>
+<label for="plan">Plan:</label>
+<select id="plan" name="plan">
+    <option value="1">other</option>
+    <option value="2">unlimited</option>
+    <option value="3">crown family</option>
+    <option value="4">in only</option>
+    <option value="5">family plus</option>
+</select><br><br>
+        </div>
+        <hr>
+
+        <button type="button" onclick="solveEquation()">Solve</button>
+    </form>
+    
+    <h3>frequence: <b id="freq"> </b></h3>
+    <h3>severité: <b id="rec"></b></h3>
+    <h2>Prime nette par la methode frequency-severity est: <span id="result"></span>JOD =<span id="dollar"></span> $</h2>
+
+    <!-- Second Equation Solver -->
+
+    <h2>Prime brute par la methode frequency-severity est: <span id="result3"></span> JOD =<span id="dollar3"></span> $</h2>
+
+    <h4>Préparé par MAHER NASSER</h4>
+    <div class="display_img">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.SgRXCeA4JUQdWT16W2E3EgHaHZ&pid=Api&P=0&h=220" width="120px" height="110px">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.ew98xaUYRTmEeOSJtoqE-wHaHd&pid=Api&P=0&h=220" width="120px" height="110px">
+        <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQFB3fImFpEA2Q/company-logo_200_200/0/1567498565834?e=2159024400&v=beta&t=Ntw_hZYkRzmroVjPijvS03suv-RnZziBP8QW2H2O2H4" width="120px" height="110px">
+       
+    
+
+<script>
+        function solveEquation() {
+            // Get input values
+            let x = parseFloat(document.getElementById('x').value);
+            let relation = parseInt(document.getElementById('relation').value);
+	    console.log(relation);
+            let classe = parseInt(document.getElementById('classe').value);
+            let newRenewal = parseInt(document.getElementById('new').value);
+            let policyType = parseInt(document.getElementById('policyType').value);
+            let plan = parseInt(document.getElementById('plan').value);
+            let gendre=parseInt(document.getElementById('gender').value);
+            
+            if (isNaN(x)) {
+            alert("Invalid input for age");
+            return;
+           }
+        let a = (x >= 0 && x <= 4) ? 1 : 0;
+        let a1 = (x >= 5 && x <= 9) ? 1 : 0;
+        let a2 = (x >= 10 && x <= 14) ? 1 : 0;
+        let a3 = (x >= 15 && x <= 19) ? 1 : 0;
+        let a4 = (x >= 20 && x <= 24) ? 1 : 0;
+        let a5 = (x >= 25 && x <= 29) ? 1 : 0;
+        let a6 = (x >= 30 && x <= 34) ? 1 : 0;
+        let a7 = (x >= 35 && x <= 39) ? 1 : 0;
+        let a8 = (x >= 40 && x <= 44) ? 1 : 0;
+        let a9 = (x >= 45 && x <= 49) ? 1 : 0;
+        let a10 = (x >= 50 && x <= 54) ? 1 : 0;
+        let a11 = (x >= 55 && x <= 59) ? 1 : 0;
+        let a12 = (x >= 60 && x <= 65) ? 1 : 0;
+        let a13 = (x >= 66) ? 1 : 0;
+            let r=0,r1=0,r2=0,r3=0,r4=0,r5=0;
+            if(relation=="soi-même "){
+                r=1;
+            }
+            if(relation=="enfant "){
+                r1=1;
+            }
+            if(relation=="conjoint "){
+                r2=1;
+            }
+            if(relation=="parent "){ 
+                r3=1;
+            }
+            if(relation=="autre "){
+                r4=1;
+            }
+            if(relation=="principale"){
+                r5=1;
+            }
+            let c=0,c1=0,c2=0,c3=0,c4=0;
+            if(classe=="A"){
+                c=1;
+            }
+            if(classe=="B"){
+                c1=1;
+            }
+            if(classe=="C"){
+                c2=1;
+            }
+            if(classe=="X"){
+                c3=1;
+            }
+            if(classe=="VIP"){
+                c4=1;
+            }
+            let p=0,p1=0,p2=0,p3=0,p4=0;
+            if(plan=="other"){
+                p=1
+            }
+            if(plan=="unlimitec"){
+                p1=1
+            }
+            if(plan=="crown family"){
+                p2=1
+            }
+            if(plan=="in only"){
+                p3=1
+            }
+            if(plan=="family plus"){
+                p4=1
+            }
+            let sexe1=(gendre==="Male")?1:0;
+            let sexe2=(gendre=="female")?0:0;
+            let newrenewal1= (newRenewal === "New") ? 0: 0; 
+            let newrenewal2= (newRenewal === "Renewal") ? 1: 0; 
+            let policytypee1= (policyType === "Groupe") ? 0: 0; 
+            let policytypee2= (policyType === "individual") ? 1: 0; 
+            
+            // Calculations
+            const result =  0*a+(-0.039788)*a1+
+(0.026742)*a2+(-0.226185)*a3+
+(0.213708)*a4+(0.197562)*a5+
+(0.220027)*a6+(0.231809)*a7+
+(0.240539)*a8+(0.267084)*a9+
+(0.306788)*a10+(0.378268)*a11+(0.447540)*a12+
+(0.660559)*a13 +
+
+(-1.127410)*r+0*r1+(-0.804746)*r2+(-0.683664)*r3+(1.592452)*r4+(-0.825498)*r5
+
++0*c+(-0.030756)*c1+(-0.094612)*c2+(0.189181)*c3+(0.194512)*c4+
+(0.036484)*p+(0.072833)*p1+0*p2+(2.622358)*p3+(-0.038735)*p4+
+newrenewal1+(-0.034869)*newrenewal2+(-0.009721)*sexe1+sexe2+policytypee1+(-0.044186)*policytypee2 
+ ;
+
+
+
+
+
+            const result1 =  0*a+(-0.039788)*a1+(0.026742)*a2+(-0.226185)*a3+(0.213708)*a4+(0.197562)*a5+(0.220027)*a6+(0.231809)*a7+(0.240539)*a8+(0.267084)*a9+(0.306788)*a10+(0.378268)*a11+(0.447540)*a12+(0.660559)*a13 +(-1.127410)*r+0*r1+(-0.804746)*r2+(-0.683664)*r3+(1.592452)*r4+(-0.825498)*r5+0*c+(-0.030756)*c1+(-0.094612)*c2+(0.189181)*c3+(0.194512)*c4+(0.036484)*p+(0.072833)*p1+0*p2+(2.622358)*p3+(-0.038735)*p4+newrenewal1+(-0.034869)*newrenewal2+(-0.009721)*sexe1+sexe2+policytypee1+(-0.044186)*policytypee2  ;
+            const result2 = result * result1;
+
+            // Display results
+            document.getElementById('freq').innerHTML = result.toFixed(2);
+          document.getElementById('rec').innerHTML = result1.toFixed(2);
+         document.getElementById('result').innerText = result2.toFixed(2);
+         document.getElementById('result2').innerHTML = result.toFixed(2);   
+         document.getElementById("dollar").innerHTML = (result2 * 1.41).toFixed(2);  
+         document.getElementById("dollar2").innerHTML = (result * 1.41).toFixed(2);   
+
+         let result4 = result/0.75;
+  
+    document.getElementById("result3").innerHTML = result4.toFixed(2);
+    document.getElementById("dollar3").innerHTML = (result4 * 1.41).toFixed(2);
+
+
+        }
+    </script>
+
+    <style>
+        /* Container styling */
+        .display_img {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow images to wrap to the next line if they overflow */
+            justify-content: center; /* Center images horizontally */
+            align-items: center; /* Center images vertically */
+            padding: 10px; /* Optional: adds padding around the container */
+            border: 1px solid #ddd; /* Optional: adds a border around the container */
+            border-radius: 10px; /* Optional: rounds the corners of the container */
+            background-color: #f9f9f9; /* Optional: adds a background color */
+        }
+
+        /* Image styling */
+        .display_img img {
+            border: 2px solid #ccc; /* Light gray border around images */
+            border-radius: 8px; /* Rounded corners for images */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.3s; /* Smooth scaling transition on hover */
+            margin: 10px; /* Add margin around each image */
+        }
+
+        /* Hover effect */
+        .display_img img:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+    </style>
+
+</body>
+</html>
